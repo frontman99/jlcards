@@ -1,0 +1,22 @@
+.my-apodWidget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+  }
+  
+  .myButton {
+    background: black;
+  }
+  
+  .jp-Button.minimal {
+    color: black;
+  }
+  
+  .jp-ReactWidget {
+    color: var(--jp-ui-font-color1);
+    background: var(--jp-layout-color1);
+    padding: 20px;
+    overflow: scroll;
+  }
+  
