@@ -1,6 +1,6 @@
 {
   "name": "jlmc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generating model cards for models in Jupyter Notebook.",
   "keywords": [
     "jupyter",
