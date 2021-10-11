@@ -22,15 +22,15 @@ Simply running this command installs all the python dependencies for the project
 ## Usage
 Once the package is installed on the machine, you should get a `Model Card` button listed on the toolbar of your notebook.
 
-![Model card button](gifs/usage/modelcardtab.gif)
+![Model card button](https://github.com/frontman99/jlcards/blob/main/gifs/usage/modelcardtab.gif)
 
 On clicking the `Model Card` button, a documentation panel will open on the right half of the Jupyterlab window. It will contain the default sections of the documentation, most of which are from the  <i>Model Cards for Model Reporting</i> [[1]](#1) paper. After editing, user can export the documentation into an markdown file by clicking the `Export to MD` button on the top right of the panel.
 
-![Generating Model Cards](gifs/usage/opening.gif)
+![Generating Model Cards](https://github.com/frontman99/jlcards/blob/main/gifs/usage/opening.gif)
 
 User can add or edit the content in each section by clicking the edit icon next to the section name. To maintain the consistency of the documentatin, the content is placed in the orignial notebook by creating a new markdown cell in the notebook or udpating the existing one. This cell will contain the `html` tag indicating the section name. Insert the content inside the `html` tags and the updated content will display on the right panel by refresh the model card, either by closing the panel and clicking on the model card button again or clicking on the refresh button on top of the panel.
 
-![Edit notebook from modelcard](gifs/usage/editingfrommc.gif)
+![Edit notebook from modelcard](https://github.com/frontman99/jlcards/blob/main/gifs/usage/editingfrommc.gif)
 
 You can also define your own sections for the model card by creating a `modelcard.config` file and put it within the same folder of the original notebook. The format of the fie should be as follows.
 ```json
@@ -97,7 +97,7 @@ As mentioned in the paper, each of these sections are to be used as follows.
 
 The sections with * superscript, such as Plotting<sup>*</sup>, contain contents mapped to the the source code cells. The mapping is automatically detected but the user can change the mapping of the source code cell for an existing notebook. Right click on the code cell, and select the `[Model Card] Change stage to..` option which will list the available stages in a dropdown. On selecting the stage, a comment is added on to the cell indicating the type of the cell.
 
-![GEdit model card stage from notebook](gifs/usage/nbtomc.gif)
+![GEdit model card stage from notebook](https://github.com/frontman99/jlcards/blob/main/gifs/usage/nbtomc.gif)
 
 ----
 ## Caution
