@@ -1,18 +1,16 @@
 {
   "name": "jlmc",
-  "version": "0.0.2",
+  "version": "0.0.15",
   "description": "Generating model cards for models in Jupyter Notebook.",
   "keywords": [
     "jupyter",
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/frontman99/jlcards",
-
+  "homepage": "",
   "license": "BSD-3-Clause",
   "author": {
-    "name": "frontman",
-    "email": "squidgameboss33@gmail.com"
+    "name": "frontman"
   },
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
