@@ -44,11 +44,10 @@ class ModelCard {
           figures: [],
           description: "",
           outputs: [],
-          tooltip: "",
         },
       };
       sections["sections"].forEach((s) => {
-        var keyName = s["section"].split(" ").join("").toLowerCase();
+        var keyName = s.split(" ").join("").toLowerCase();
         if (keyName === "trainingprocedureanddata") {
           keyName = "modeltraining";
         } else if (keyName === "evaluationprocedureanddata") {
@@ -57,7 +56,7 @@ class ModelCard {
         this.JSONSchema[
           keyName
         ] = {
-          title: s["section"],
+          title: s,
           cell_ids: [],
           cells: [],
           lineNumbers: [],
@@ -68,28 +67,27 @@ class ModelCard {
           figures: [],
           description: "",
           outputs: [],
-          tooltip: s["description"],
         };
       });
     } catch (err) {
       const defaultSections = [
-        {section: "Basic information", description: "Basic details about the model, including details like person or the organization developing the model, date, version, type, information about training algorithms, parameters, fairness constraints, features, citations, licences and contact information."},
-        {section: "Intended Use", description: "Use cases envisioned for the model during development, including primary intended uses and users, out of scope use cases."},
-        {section: "Factors", description: "Demographic or phenotypic groups, environmental conditions, technical attributes."},
-        {section: "Ethical Considerations", description: ""},
-        {section: "Caveats and Recommendations", description: ""},
-        {section: "Libraries", description: "The libraries that are imported into the notebook."},
-        {section: "Datasets", description: ""},
-        {section: "References", description: ""},
-        {section: "Data Cleaning", description: ""},
-        {section: "Preprocessing", description: ""},
-        {section: "Training Procedure and Data", description: "Similar to evaluation data, the dataset used to train the model. Can contain the hyperparameters that are used while training the model as well."},
-        {section: "Evaluation Procedure and Data", description: "Datasets used by the model, motivation of the use case, preprocessing information."},
-        {section: "Hyperparameters", description: ""},
-        {section: "Plotting", description: "Any plots present in the notebook."},
-        {section: "Disaggregated Evaluation Result", description: ""},
-        {section: "Miscellaneous", description: "Code lines that can be ignored."},
-      ]
+           "Basic information",
+           "Intended Use",
+           "Factors",
+           "Ethical Considerations",
+           "Caveats and Recommendations",
+           "Libraries",
+           "Datasets",
+           "References",
+           "Data Cleaning",
+           "Preprocessing",
+           "Training Procedure and Data",
+           "Evaluation Procedure and Data",
+           "Hyperparameters",
+           "Plotting",
+           "Disaggregated Evaluation Result",
+           "Miscellaneous"
+        ]
         this.JSONSchema = {
           modelname: { title: "", Filename: "", cell_ids: [] },
           miscellaneous: {
@@ -104,11 +102,10 @@ class ModelCard {
             figures: [],
             description: "",
             outputs: [],
-            tooltip: "",
           },
         };
         defaultSections.forEach((s) => {
-          var keyName = s["section"].split(" ").join("").toLowerCase();
+          var keyName = s.split(" ").join("").toLowerCase();
           if (keyName === "trainingprocedureanddata") {
             keyName = "modeltraining";
           } else if (keyName === "evaluationprocedureanddata") {
@@ -117,7 +114,7 @@ class ModelCard {
           this.JSONSchema[
             keyName
           ] = {
-            title: s["section"],
+            title: s,
             cell_ids: [],
             cells: [],
             lineNumbers: [],
@@ -128,7 +125,6 @@ class ModelCard {
             figures: [],
             description: "",
             outputs: [],
-            tooltip: s["description"],
           };
         });
     }

@@ -99,7 +99,7 @@ As mentioned in the paper, each of these sections are to be used as follows.
 
 The sections with * superscript, such as Plotting<sup>*</sup>, contain contents mapped to the the source code cells. The mapping is automatically detected but the user can change the mapping of the source code cell for an existing notebook. Right click on the code cell, and select the `[Model Card] Change stage to..` option which will list the available stages in a dropdown. On selecting the stage, a comment is added on to the cell indicating the type of the cell.
 
-![Edit model card stage from notebook](https://github.com/frontman99/jlcards/blob/main/gifs/usage/nbtomc.gif?raw=true)
+![GEdit model card stage from notebook](https://github.com/frontman99/jlcards/blob/main/gifs/usage/nbtomc.gif?raw=true)
 
 ----
 ## Caution

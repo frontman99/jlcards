@@ -3,7 +3,7 @@ import { PathExt } from "@jupyterlab/coreutils";
 import { IDocumentManager } from "@jupyterlab/docmanager";
 import { DocumentRegistry } from "@jupyterlab/docregistry";
 import { INotebookModel, Notebook } from "@jupyterlab/notebook";
-import { Button, Row, Col, Space, Tooltip } from "antd";
+import { Button, Row, Col, Space } from "antd";
 import { enableMapSet } from "immer";
 import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
@@ -31,7 +31,6 @@ export interface ISchemaItem {
   title: string;
   /** customized description */
   description: string;
-  tooltip: string;
 }
 export interface ISchemaStageItem extends ISchemaItem {
   cell_ids: number[];
@@ -55,7 +54,7 @@ export interface ISchema {
   hyperparameters: ISchemaStageItem;
   modeltraining: ISchemaStageItem;
   modelevaluation: ISchemaStageItem;
-  miscellaneous: ISchemaStageItem;
+  miscellaneous: ISchemaStageItem;  
 }
 interface ISectionContent {
   notebook: Notebook;
@@ -101,13 +100,6 @@ const VerticalLine: any = styled.div`
   }
 `;
 
-// const Tooltip = (tooltipContent: string) => {
-//   return (<ReactTooltip id="header-tooltip" place="right" effect="solid" type="light" 
-//   delayHide={100} delayShow={500} delayUpdate={500}>
-//   {tooltipContent}
-// </ReactTooltip>);
-// }
-
 const SectionContent: React.FC<ISectionContent> = ({
   notebook,
   sectionName,
@@ -117,19 +109,18 @@ const SectionContent: React.FC<ISectionContent> = ({
   if (typeof sectionContent !== "object") {
     return null;
   }
+
   return (
     <>
       <>
         <h1>
-        <Tooltip title={sectionContent.tooltip} placement="rightTop">
           {sectionContent.title} {quickFix}
-          </Tooltip>
         </h1>
         <ReactMarkdown>{sectionContent.description}</ReactMarkdown>
         <div style={{ display: "block" }}>
           {sectionName !== "modelname" &&
-            "cell_ids" in sectionContent &&
-            sectionContent.cell_ids.length > 0 ? (
+          "cell_ids" in sectionContent &&
+          sectionContent.cell_ids.length > 0 ? (
             <Bar>
               {sectionContent.cell_ids.map((cid: number, idx: number) => (
                 <VerticalLine
@@ -143,15 +134,15 @@ const SectionContent: React.FC<ISectionContent> = ({
         </div>
         {"figures" in sectionContent
           ? sectionContent.figures.map((src: string, idx: number) => {
-            // console.log(sectionName + ' ' + sectionContent.figures.length);
-            return (
-              <img
-                style={{ display: "block" }}
-                key={idx}
-                src={`data:image/png;base64,${src}`}
-              />
-            );
-          })
+              // console.log(sectionName + ' ' + sectionContent.figures.length);
+              return (
+                <img
+                  style={{ display: "block" }}
+                  key={idx}
+                  src={`data:image/png;base64,${src}`}
+                />
+              );
+            })
           : null}
       </>
     </>
@@ -171,6 +162,7 @@ const Section: React.FC<ISectionProps> = ({
   useEffect(() => {
     const amap = getAnnotMap(notebook);
     let modelCard: any = JSON.parse(JSON.stringify(ServerResponse));
+    
     amap.forEach((value, key) => {
       if (key in modelCard) {
         modelCard[key]["description"] = value.content;
